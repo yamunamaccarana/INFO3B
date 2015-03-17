@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<composite xmlns="http://www.osoa.org/xmlns/sca/1.0"
+	targetNamespace="http://launch" 
+	name="launchtasks">
+
+	<component name="MasterEnvironmentManagingSystem">
+		<implementation.java class="unibg.saoms.MasterEnvironmentManagingSystem" />
+		<property name="ID">MEMS</property>
+		<property name="period">500</property>
+		<property name="delay">0</property>
+		<property name="runOnStartup">true</property>
+		<property name="mayInterruptIfRunning">true</property>
+		<property name="useJMS">true</property>
+		<property name="url">localhost:61616</property>
+		<property name="topicRename"></property>
+		<service name="TaskInterface">
+			<interface.java interface="unibg.robotics.tca.TaskInterface" />
+		</service>
+	</component>
+	
+	<component name="MasterRobotManagingSystem">
+		<implementation.java class="unibg.saoms.MasterRobotManagingSystem" />
+		<property name="ID">MRMS</property>
+		<property name="period">500</property>
+		<property name="delay">0</property>
+		<property name="runOnStartup">true</property>
+		<property name="mayInterruptIfRunning">true</property>
+		<property name="useJMS">true</property>
+		<property name="url">localhost:61616</property>
+		<property name="topicRename"></property>
+		<service name="TaskInterface">
+			<interface.java interface="unibg.robotics.tca.TaskInterface" />
+		</service>
+	</component>
+	
+	<component name="Environment">
+		<implementation.java class="launch.Environment" />
+		<property name="ID">MEMS</property>
+		<property name="period">500</property>
+		<property name="delay">0</property>
+		<property name="runOnStartup">true</property>
+		<property name="mayInterruptIfRunning">true</property>
+		<property name="useJMS">true</property>
+		<property name="url">localhost:61616</property>
+		<property name="topicRename"></property>
+		<service name="TaskInterface">
+			<interface.java interface="unibg.robotics.tca.TaskInterface" />
+		</service>
+	</component>
+	
+	<component name="Robot001">
+		<implementation.java class="robot.Robot001" />
+		<property name="ID">Robot001</property>
+		<property name="period">1000</property>
+		<property name="delay">0</property>
+		<property name="runOnStartup">true</property>
+		<property name="mayInterruptIfRunning">true</property>
+		<property name="useJMS">true</property>
+		<property name="url">localhost:61616</property>
+		<property name="topicRename"></property>
+		<service name="TaskInterface">
+			<interface.java interface="unibg.robotics.tca.TaskInterface" />
+		</service>
+	</component>
+	
+ 	<component name="Robot002">
+		<implementation.java class="robot.Robot002" />
+		<property name="ID">Robot002</property>
+		<property name="period">1000</property>
+		<property name="delay">500</property>
+		<property name="runOnStartup">true</property>
+		<property name="mayInterruptIfRunning">true</property>
+		<property name="useJMS">true</property>
+		<property name="url">localhost:61616</property>
+		<property name="topicRename"></property>
+		<service name="TaskInterface">
+			<interface.java interface="unibg.robotics.tca.TaskInterface" />
+		</service>
+	</component>
+</composite>
